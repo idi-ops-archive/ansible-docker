@@ -1,0 +1,10 @@
+---
+
+- name: Create container
+  docker:
+    image: busybox
+    pull: always
+    state: present
+  register: st
+
+- debug: var=st

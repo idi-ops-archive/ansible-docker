@@ -1,0 +1,47 @@
+---
+
+#- name: Enable Yum repository
+#  copy:
+#    src: docker.repo
+#    dest: /etc/yum.repos.d/docker.repo
+#    owner: root
+#    group: root
+#    mode: '0644'
+
+- name: Import PGP key
+  rpm_key:
+    key: https://yum.dockerproject.org/gpg
+    state: present
+
+- name: Install packages
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items: 
+    - "{{ docker_packages[docker_version] }}"
+
+- name: Transfer sysconfig/docker file
+  copy:
+    src: sysconfig-docker
+    dest: /etc/sysconfig/docker
+    owner: root
+    group: root
+    mode: '0644'
+  notify: restart docker
+
+- name: Configure systemd service
+  copy:
+    src: docker.service
+    dest: /usr/lib/systemd/system/docker.service
+    owner: root
+    group: root
+    mode: '0644'
+  notify: 
+    - reload systemd
+    - restart docker
+
+- name: Enable and start service
+  service:
+    name: docker
+    enabled: yes
+    state: started

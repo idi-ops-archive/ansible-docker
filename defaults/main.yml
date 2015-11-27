@@ -1,0 +1,8 @@
+---
+
+# Because Docker is a such a critical piece of any infrastructure,
+# the version that should be installed must be explicitly defined.
+#
+# See vars/main.yml for the versions this role supports.
+
+docker_version: 1.9.1
