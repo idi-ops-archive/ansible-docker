@@ -2,9 +2,18 @@
 
 - name: Create container
   docker:
+    name: "{{ docker_test_container_name }}"
     image: busybox
+    command: "ping 127.0.0.1"
     pull: always
-    state: present
-  register: st
+    detach: yes
+    tty: yes
+    memory_limit: 1024MB
+    restart_policy: 'no'
+    state: started
 
-- debug: var=st
+- name: Remove container
+  docker:
+    name: "{{ docker_test_container_name }}"
+    image: busybox
+    state: absent
