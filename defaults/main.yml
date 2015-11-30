@@ -6,3 +6,10 @@
 # See vars/main.yml for the versions this role supports.
 
 docker_version: 1.9.1
+
+
+# Enable SELinux support
+docker_selinux_enabled: yes
+
+# Log level (debug, info, warn, error, fatal)
+docker_log_level: warn

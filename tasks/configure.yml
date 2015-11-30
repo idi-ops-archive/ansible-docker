@@ -1,8 +1,8 @@
 ---
 
 - name: Transfer sysconfig/docker file
-  copy:
-    src: sysconfig-docker
+  template:
+    src: sysconfig-docker.j2
     dest: /etc/sysconfig/docker
     owner: root
     group: root
