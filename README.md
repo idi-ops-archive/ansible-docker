@@ -7,12 +7,16 @@ Role Tags
 ---------
 
  * install
+ * configure
+ * deploy
  * test
 
 Role Variables
 --------------
 
  * docker_version (see vars/main.yml for supported/tested versions)
+ * docker_selinux_enabled
+ * docker_log_level
 
 Example Playbook
 ----------------
