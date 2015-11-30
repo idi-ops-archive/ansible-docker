@@ -10,8 +10,8 @@
   notify: restart docker
 
 - name: Configure systemd service
-  copy:
-    src: docker.service
+  template:
+    src: docker.service.j2
     dest: /usr/lib/systemd/system/docker.service
     owner: root
     group: root
