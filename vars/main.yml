@@ -3,5 +3,6 @@
 docker_packages:
   - docker
   - docker-python
+  - lvm2
 
 docker_test_container_name: ansible-role-docker-test-container

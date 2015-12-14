@@ -5,3 +5,12 @@ docker_selinux_enabled: yes
 
 # Log level (debug, info, warn, error, fatal)
 docker_log_level: warn
+
+# Empty disk to be used for Docker data/metadata 
+#docker_lvm_disk: /dev/vdb
+
+# Name for Docker LVM volume group
+docker_lvm_vg: docker
+
+# Initial size for data logical volume (remember: leave space for metadata thin volume)
+docker_lvm_data_size: "80%FREE"

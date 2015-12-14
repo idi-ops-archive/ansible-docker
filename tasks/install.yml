@@ -3,5 +3,5 @@
 - name: Install packages
   yum:
     name: "{{ item }}"
-    state: present
+    state: latest
   with_items: docker_packages
