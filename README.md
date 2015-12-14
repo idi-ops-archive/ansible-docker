@@ -23,8 +23,7 @@ Example Playbook
 
     - hosts: localhost
       roles:
-         - role: docker
-           tags: ['install','test']
+         - docker
 
 License
 -------

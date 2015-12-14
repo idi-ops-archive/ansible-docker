@@ -8,14 +8,3 @@
     group: root
     mode: '0644'
   notify: restart docker
-
-- name: Configure systemd service
-  template:
-    src: docker.service.j2
-    dest: /usr/lib/systemd/system/docker.service
-    owner: root
-    group: root
-    mode: '0644'
-  notify: 
-    - reload systemd
-    - restart docker
