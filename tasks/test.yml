@@ -11,6 +11,8 @@
     memory_limit: 1024MB
     restart_policy: 'no'
     state: started
+  failed_when: false # https://github.com/ansible/ansible-modules-core/issues/2611
+  ignore_errors: yes # https://github.com/ansible/ansible-modules-core/issues/2611
 
 - name: Remove container
   docker:

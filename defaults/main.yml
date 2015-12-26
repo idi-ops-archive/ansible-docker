@@ -1,22 +1,19 @@
 ---
 
-# Because Docker is a such a critical piece of any infrastructure,
-# the version that should be installed must be explicitly defined.
-#
-# See vars/main.yml for the versions this role supports.
-docker_version: 1.9.1
-
 # Enable SELinux support
 docker_selinux_enabled: yes
 
 # Log level (debug, info, warn, error, fatal)
 docker_log_level: warn
 
-# Maximum number of open files
-docker_limit_openfiles: 1048576
+# Kubernetes node? Delete docker0 bridge
+docker_delete_docker_bridge: no
 
-# Maximum number of processes
-docker_limit_processes: 1048576
+# Empty disk to be used for Docker data/metadata 
+#docker_lvm_disk: /dev/vdb
 
-# Maximum core dump size (in bytes)
-docker_limit_coredump: 0
+# Name for Docker LVM volume group
+docker_lvm_vg: docker
+
+# Initial size for data logical volume (remember: leave space for metadata thin volume)
+docker_lvm_data_size: "80%FREE"
