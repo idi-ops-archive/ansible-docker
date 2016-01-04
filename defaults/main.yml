@@ -17,3 +17,15 @@ docker_lvm_vg: docker
 
 # Initial size for data logical volume (remember: leave space for metadata thin volume)
 docker_lvm_data_size: "80%FREE"
+
+# List of OS-level users with access to docker daemon
+docker_admin_users: []
+
+# Enable UNIX socket
+docker_socket_enabled: yes
+docker_socket_path: /var/run/docker.sock
+
+# Enable TCP communication
+docker_tcp_enabled: no
+docker_tcp_address: 127.0.0.1
+docker_tcp_port: 2375

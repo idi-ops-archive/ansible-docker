@@ -1,4 +1,4 @@
 # /etc/sysconfig/docker
 
 # Modify these options if you want to change the way the docker daemon runs
-OPTIONS='--log-level {{ docker_log_level }} {% if docker_selinux_enabled %}--selinux-enabled{% endif %}'
+OPTIONS='--log-level {{ docker_log_level }} {% if docker_selinux_enabled %}--selinux-enabled{% endif %}{% if docker_socket_enabled %} -H unix://{{ docker_socket_path }}{% endif %}{% if docker_tcp_enabled %} -H tcp://{{ docker_tcp_address }}:{{ docker_tcp_port }}{% endif %}'
