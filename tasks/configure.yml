@@ -30,5 +30,5 @@
     name: "{{ item }}"
     groups: docker
     append: yes
-  with_items: docker_admin_users
+  with_items: "{{ docker_admin_users }}"
   notify: restart docker
