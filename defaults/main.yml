@@ -9,7 +9,7 @@ docker_log_level: warn
 # Kubernetes node? Delete docker0 bridge
 docker_delete_docker_bridge: no
 
-# Empty disk to be used for Docker data/metadata 
+# Empty disk to be used for Docker data/metadata
 #docker_lvm_disk: /dev/vdb
 
 # Name for Docker LVM volume group
