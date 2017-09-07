@@ -1,7 +1,7 @@
 ---
 
 - name: Create container
-  docker:
+  docker_container:
     name: "{{ docker_test_container_name }}"
     image: busybox
     command: "ping 127.0.0.1"
@@ -15,7 +15,7 @@
   ignore_errors: yes # https://github.com/ansible/ansible-modules-core/issues/2611
 
 - name: Remove container
-  docker:
+  docker_container:
     name: "{{ docker_test_container_name }}"
     image: busybox
     state: absent
